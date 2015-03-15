@@ -43,13 +43,12 @@ public class ProvedorServiceTest {
     @Test
     public void testGetTotalVendaMes() {
         System.out.println("getTotalVendaMes");
-        int mes = 0;
+        int mes = 3;
         IProvedorService instance = new ProvedorService();
-        double expResult = 0.0;
+        double expResult = 84499.85;
         double result = instance.getTotalVendaMes(mes);
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result, 0.01);
+        
     }
 
     /**
@@ -58,13 +57,12 @@ public class ProvedorServiceTest {
     @Test
     public void testGetTotalVendasVendedor() {
         System.out.println("getTotalVendasVendedor");
-        String vendedor = "";
+        String vendedor = "Rodrigo";
         IProvedorService instance = new ProvedorService();
-        double expResult = 0.0;
+        double expResult = 20499.97;
         double result = instance.getTotalVendasVendedor(vendedor);
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result, 0.01);
+        
     }
 
     /**
@@ -73,13 +71,12 @@ public class ProvedorServiceTest {
     @Test
     public void testGetTotalComissaoVendasVendedor() {
         System.out.println("getTotalComissaoVendasVendedor");
-        String vendedor = "";
+        String vendedor = "Pamela";
         IProvedorService instance = new ProvedorService();
-        double expResult = 0.0;
+        double expResult = 6799.97;
         double result = instance.getTotalComissaoVendasVendedor(vendedor);
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result, 0.01);
+       
     }
 
     /**
@@ -88,14 +85,13 @@ public class ProvedorServiceTest {
     @Test
     public void testGetTotalComissaoVendasVendedorMes() {
         System.out.println("getTotalComissaoVendasVendedorMes");
-        String vendedor = "";
-        int mes = 0;
+        String vendedor = "Pamela";
+        int mes = 3;
         IProvedorService instance = new ProvedorService();
-        double expResult = 0.0;
+        double expResult = 3499.98;
         double result = instance.getTotalComissaoVendasVendedorMes(vendedor, mes);
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result, 0.01);
+        
     }
         
 }

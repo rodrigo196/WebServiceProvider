@@ -7,14 +7,22 @@
 package br.com.poo.vendas.entity;
 
 /**
- *
- * @author rodrigo
+ * Entidade Vendedor
+ * @author Andre Luiz Pelisoli, Pamela Pereira Zagatti e Rodrigo Fernandes Bulgarelli
  */
 public class VendedorEntity {
     private int codigo;
     private String nome;
     private double percentualComissao;
 
+    /**
+     * Construtor do vendedor
+     * 
+     * @param codigo <b>int</b> - Codigo do vendedor.
+     * @param nome <b>nome</b> - O nome do vendedor.
+     * @param percentualComissao <b>double</b> - O percentual de comissao que o vendedor ganha sobre cada venda. 
+     * Esse valor deve estra entre 0.00 e 1.00.
+     */
     public VendedorEntity(int codigo, String nome, double percentualComissao) {
         this.codigo = codigo;
         this.nome = nome;

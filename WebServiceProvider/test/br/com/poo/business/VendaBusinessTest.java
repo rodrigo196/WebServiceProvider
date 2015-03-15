@@ -26,10 +26,7 @@ public class VendaBusinessTest {
     
     @BeforeClass
     public static void setUpClass() {
-        List<VendaEntity> vendas = new ArrayList<>();
-       
-        new VendaBusiness(vendas);
-        
+                
     }
     
     @AfterClass
@@ -52,11 +49,10 @@ public class VendaBusinessTest {
         System.out.println("getTotalVendaMes");
         int mes = 2;
         IVendaBusiness instance = new VendaBusiness();
-        double expResult = 2015.21;
+        double expResult = 38283.38;
         double result = instance.getTotalVendaMes(mes);
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("Calculo do total de vendas no mes falhou!.");
+        assertEquals(expResult, result, 0.01);
+        
     }
 
     /**
@@ -65,13 +61,12 @@ public class VendaBusinessTest {
     @Test
     public void testGetTotalVendasVendedor() {
         System.out.println("getTotalVendasVendedor");
-        String vendedor = "";
+        String vendedor = "Pamela";
         IVendaBusiness instance = new VendaBusiness();
-        double expResult = 0.0;
+        double expResult = 33999.88;
         double result = instance.getTotalVendasVendedor(vendedor);
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result, 0.01);
+        
     }
 
     /**
@@ -80,13 +75,12 @@ public class VendaBusinessTest {
     @Test
     public void testGetTotalComissaoVendasVendedor() {
         System.out.println("getTotalComissaoVendasVendedor");
-        String vendedor = "";
+        String vendedor = "Rodrigo";
         IVendaBusiness instance = new VendaBusiness();
-        double expResult = 0.0;
+        double expResult = 2050.0;
         double result = instance.getTotalComissaoVendasVendedor(vendedor);
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result, 0.01);
+       
     }
 
     /**
@@ -95,14 +89,13 @@ public class VendaBusinessTest {
     @Test
     public void testGetTotalComissaoVendasVendedorMes() {
         System.out.println("getTotalComissaoVendasVendedorMes");
-        String vendedor = "";
-        int mes = 0;
+        String vendedor = "Andre";
+        int mes = 3;
         IVendaBusiness instance = new VendaBusiness();
-        double expResult = 0.0;
+        double expResult = 8624.99;
         double result = instance.getTotalComissaoVendasVendedorMes(vendedor, mes);
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result, 0.01);
+        
     }
     
 }
