@@ -6,30 +6,83 @@
 
 package br.com.poo.business;
 
+import br.com.poo.util.Predicados;
+import br.com.poo.vendas.entity.ProdutoEntity;
+import br.com.poo.vendas.entity.VendaEntity;
+import br.com.poo.vendas.entity.VendedorEntity;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
- * @author rodrigo
+ *  @author Andre Luiz Pelisoli, Pamela Pereira Zagatti e Rodrigo Fernandes Bulgarelli
  */
 public class VendaBusiness implements IVendaBusiness {
+    
+    private static List<VendaEntity> vendas;
+    
+    public VendaBusiness(){
+        if (vendas == null){
+            vendas = new ArrayList<>();
+        }
+    }
+    
+    public VendaBusiness(List<VendaEntity> vendas){
+        VendaBusiness.vendas = vendas;
+    }
 
     @Override
     public double getTotalVendaMes(int mes) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.getVendas().stream().filter(Predicados.vendasNoMes(mes))
+                .mapToDouble(v -> v.getProdutos().stream()
+                        .mapToDouble(p -> p.getQuantidade() 
+                                * p.getValor()).sum()).sum();
     }
 
     @Override
     public double getTotalVendasVendedor(String vendedor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.getVendas().stream().filter(
+                Predicados.vendasDoVendedor(vendedor))
+                .mapToDouble(v -> v.getProdutos().stream()
+                        .mapToDouble(p -> p.getQuantidade() 
+                                * p.getValor()).sum()).sum();
     }
 
     @Override
     public double getTotalComissaoVendasVendedor(String vendedor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.getVendas().stream().filter(
+                Predicados.vendasDoVendedor(vendedor))
+                .mapToDouble(v -> v.getProdutos().stream()
+                        .mapToDouble(p -> p.getQuantidade() 
+                                * p.getValor()).sum() 
+                        * v.getVendedor().getPercentualComissao()).sum();
     }
 
     @Override
     public double getTotalComissaoVendasVendedorMes(String vendedor, int mes) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.getVendas().stream().filter(
+                Predicados.vendasDoVendedorNoMes(vendedor, mes))
+                .mapToDouble(v -> v.getProdutos().stream()
+                        .mapToDouble(p -> p.getQuantidade() 
+                                * p.getValor()).sum() 
+                        * v.getVendedor().getPercentualComissao()).sum();
+    }
+
+    @Override
+    public void setVendas(List<VendaEntity> vendas) {
+        VendaBusiness.vendas = vendas;
+    }
+
+    @Override
+    public List<VendaEntity> getVendas() {
+        return VendaBusiness.vendas;
     }
     
+    private void criaDadosTeste(){
+        VendedorEntity vendedor1 = new VendedorEntity(1, "Andre", 0.15);
+        VendedorEntity vendedor2 = new VendedorEntity(1, "Pamela", 0.20);
+        VendedorEntity vendedor3 = new VendedorEntity(1, "Rodrigo", 0.10);
+        
+        ProdutoEntity produto1 = new ProdutoEntity(1, "Iphone 6", 3499.99f, 2);
+    }
 }

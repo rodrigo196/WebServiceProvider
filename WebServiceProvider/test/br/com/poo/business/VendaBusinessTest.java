@@ -5,12 +5,15 @@
  */
 package br.com.poo.business;
 
+import br.com.poo.vendas.entity.VendaEntity;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -23,6 +26,10 @@ public class VendaBusinessTest {
     
     @BeforeClass
     public static void setUpClass() {
+        List<VendaEntity> vendas = new ArrayList<>();
+       
+        new VendaBusiness(vendas);
+        
     }
     
     @AfterClass

@@ -6,6 +6,7 @@
 
 package br.com.poo.vendas.service;
 
+import br.com.poo.business.VendaBusiness;
 import javax.jws.WebService;
 
 /**
@@ -17,22 +18,22 @@ public class ProvedorService implements IProvedorService {
 
     @Override
     public double getTotalVendaMes(int mes) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new VendaBusiness().getTotalVendaMes(mes);
     }
 
     @Override
     public double getTotalVendasVendedor(String vendedor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new VendaBusiness().getTotalVendasVendedor(vendedor);
     }
 
     @Override
     public double getTotalComissaoVendasVendedor(String vendedor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new VendaBusiness().getTotalComissaoVendasVendedor(vendedor);
     }
 
     @Override
     public double getTotalComissaoVendasVendedorMes(String vendedor, int mes) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new VendaBusiness().getTotalComissaoVendasVendedorMes(vendedor, mes);
     }
     
 }

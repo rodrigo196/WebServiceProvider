@@ -6,11 +6,18 @@
 
 package br.com.poo.business;
 
+import br.com.poo.vendas.entity.VendaEntity;
+import java.util.List;
+
 /**
  *
- * @author rodrigo
+ * @author Andre Luiz Pelisoli, Pamela Pereira Zagatti e Rodrigo Fernandes Bulgarelli
  */
 public interface IVendaBusiness {
+    
+    public void setVendas(List<VendaEntity> vendas);
+    
+    public List<VendaEntity> getVendas();
     
     public double getTotalVendaMes(int mes);
     
